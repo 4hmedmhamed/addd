@@ -13,14 +13,14 @@ import { useCustomization } from "../contexts/Customization";
  */
 
 function Chair(props) {
-  const { nodes, materials } = useGLTF("./models/chair.gltf");
+  const { nodes, materials } = useGLTF("./models/scene.gltf");
   const { material, legs, chairColor, cushionColor } = useCustomization();
 
   const leatherTextureProps = useTexture({
     // map: "./textures/leather/Leather_008_Base Color.jpg",
-    normalMap: "./textures/leather/Leather_008_Normal.jpg",
-    roughnessMap: "./textures/leather/Leather_008_Roughness.jpg",
-    aoMap: "./textures/leather/Leather_008_Ambient Occlusion.jpg",
+    normalMap: "./textures/fabric/Fabric_Knitted_006_basecolor.jpg",
+    roughnessMap: "./textures/fabric/Fabric_Knitted_006_basecolor.jpg",
+    aoMap: "./textures/fabric/Fabric_Knitted_006_basecolor.jpg",
   });
 
   const fabricTextureProps = useTexture({
@@ -56,40 +56,1058 @@ function Chair(props) {
   fabricTextureProps.aoMap.wrapS = fabricTextureProps.aoMap.wrapT =
     THREE.RepeatWrapping;
   return (
-    <group {...props} dispose={null}>
-      <mesh geometry={nodes.Chair.geometry} castShadow>
-        <meshStandardMaterial
-          {...(material === "leather"
-            ? leatherTextureProps
-            : fabricTextureProps)}
-          color={chairColor.color}
-        />
-      </mesh>
-      <mesh
-        geometry={nodes.Cushion.geometry}
-        position={[0, 0.06, 0.04]}
-        castShadow
-      >
-        <meshStandardMaterial
-          {...fabricTextureProps}
-          color={cushionColor.color}
-        />
-      </mesh>
-      <mesh
-        geometry={nodes.Legs1.geometry}
-        material={materials.Legs}
-        visible={legs === 1}
-        castShadow
-      />
-      <mesh
-        geometry={nodes.Legs2.geometry}
-        material={materials.Legs}
-        visible={legs === 2}
-      />
+    // <group {...props} dispose={null}>
+    //   <mesh geometry={nodes.Chair.geometry} castShadow>
+    //     <meshStandardMaterial
+    //       {...(material === "leather"
+    //         ? leatherTextureProps
+    //         : fabricTextureProps)}
+    //       color={chairColor.color}
+    //     />
+    //   </mesh>
+    //   <mesh
+    //     geometry={nodes.Cushion.geometry}
+    //     position={[0, 0.06, 0.04]}
+    //     castShadow
+    //   >
+    //     <meshStandardMaterial
+    //       {...fabricTextureProps}
+    //       color={cushionColor.color}
+    //     />
+    //   </mesh>
+    //   <mesh
+    //     geometry={nodes.Legs1.geometry}
+    //     material={materials.Legs}
+    //     visible={legs === 1}
+    //     castShadow
+    //   />
+    //   <mesh
+    //     geometry={nodes.Legs2.geometry}
+    //     material={materials.Legs}
+    //     visible={legs === 2}
+    //   />
+    // </group>
+ <group {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.001}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <group position={[-8028.562, 861.085, -2456.618]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes['Apple-IMAC_Apple-IMAC_Keyboard_0'].geometry} material={materials['Apple-IMAC_Keyboard']} position={[0, 0, 0]}  >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+            <mesh geometry={nodes['Apple-IMAC_Apple-IMAC_Mouse_0'].geometry} material={materials['Apple-IMAC_Mouse']} position={[0, 0, 0]}>
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+            <mesh geometry={nodes['Apple-IMAC_IMAC-Display_0'].geometry} material={materials['IMAC-Display']} position={[0, 0, 0]}>
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-9965.606, 0, -1450.922]} scale={14.041}>
+            <group position={[6.091, -7.362, 7.486]}>
+              <mesh geometry={nodes.Bed_Dark_Gray_Fabric_0.geometry} material={materials.Dark_Gray_Fabric} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+              <mesh geometry={nodes.Bed_Gray_Fabric_0.geometry} material={materials.Gray_Fabric} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+              <mesh geometry={nodes.Bed_White_Fabric_0.geometry} material={materials.White_Fabric} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+            </group>
+          </group>
+          <group position={[-9997.85, 0, -343.826]} rotation={[0, 1.571, 0]} scale={14.219}>
+            <mesh geometry={nodes.Carpet_Carpet_0.geometry} material={materials.Carpet} position={[-45.616, 0, 24.252]}>
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_BackWall_01_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_BackWall_02_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_BackWall_03_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_BackWall_04_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_01_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.889, 1157.75, -1294.009]} />
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_02_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_03_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_04_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_05_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_06_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_07_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_08_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_09_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_10_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_11_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_12_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_13_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_14_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_15_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_16_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_17_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_18_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_19_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_20_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_21_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_22_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_23_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_24_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_25_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_26_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_27_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_28_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_29_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_30_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_31_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_32_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_33_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_34_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_35_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_36_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Base_37_Closet_Base_0.geometry} material={materials.Closet_Base} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_38_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_39_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_40_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_41_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_42_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_43_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_44_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_45_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_46_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_47_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_48_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Base_49_Closet_Base_0.geometry} material={materials.Closet_Base} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Door_01_Wood_0.geometry} material={materials.Wood} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Door_02_Wood_0.geometry} material={materials.Wood} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Door_03_Wood_0.geometry} material={materials.Wood} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Door_04_Wood_0.geometry} material={materials.Wood} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Door_05_Wood_0.geometry} material={materials.Wood} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Door_06_Wood_0.geometry} material={materials.Wood} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Door_07_Wood_0.geometry} material={materials.Wood} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Door_08_Wood_0.geometry} material={materials.Wood} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Frame_01_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Frame_02_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Frame_03_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Frame_04_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Frame_05_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Frame_06_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Frame_07_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_Frame_08_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Frame_09_Metal_0.geometry} material={materials.Metal} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Frame_10_Metal_0.geometry} material={materials.Metal} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Frame_11_Metal_0.geometry} material={materials.Metal} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Frame_12_Metal_0.geometry} material={materials.Metal} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Frame_13_Metal_0.geometry} material={materials.Metal} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Frame_14_Metal_0.geometry} material={materials.Metal} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Frame_15_Metal_0.geometry} material={materials.Metal} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_Frame_16_Metal_0.geometry} material={materials.Metal} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_LED_01__0.geometry} material={materials.Closet_LED_01__0} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_LED_02__0.geometry} material={materials.Closet_LED_01__0} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_LED_03__0.geometry} material={materials.Closet_LED_01__0} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_LED_04__0.geometry} material={materials.Closet_LED_01__0} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_LED_05__0.geometry} material={materials.Closet_LED_01__0} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Closet_LED_06__0.geometry} material={materials.Closet_LED_01__0} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Closet_LED_07__0.geometry} material={materials.Closet_LED_01__0} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-5395.767, 1044.272, 853.236]} rotation={[-Math.PI / 2, 0, -Math.PI / 2]} scale={1.329}>
+            <group position={[241.13, -27.683, -78.352]}>
+              <mesh geometry={nodes['Door-Handle_01_Metal_0'].geometry} material={materials.Metal} position={[0, 0.001, 0]} />
+            </group>
+          </group>
+          <group position={[-5655.941, 1044.272, 853.236]} rotation={[Math.PI / 2, 0, Math.PI / 2]} scale={1.329}>
+            <mesh geometry={nodes['Door-Handle_02_Metal_0'].geometry} material={materials.Metal} position={[241.13, -27.682, -78.352]} />
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Glass_Mate_01_Glass_Mate_0.geometry} material={materials.Glass_Mate} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Glass_Mate_02_Glass_Mate_0.geometry} material={materials.Glass_Mate} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Glass_Mate_03_Glass_Mate_0.geometry} material={materials.Glass_Mate} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6269.809, 1295.052, 2265.498]} rotation={[-Math.PI / 2, 0, Math.PI]}>
+            <mesh geometry={nodes.Glass_Mate_04_Glass_Mate_0.geometry} material={materials.Glass_Mate} position={[800.899, -5289.344, -1295.052]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Hanger_01_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Hanger_02_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Hanger_03_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Hanger_04_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Hanger_05_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Hanger_06_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Hanger_07_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Hanger_08_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-6856.574, 1297.527, -759.298]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Hanger_09_Metal_0.geometry} material={materials.Metal} position={[3096.888, 1157.75, -1294.009]} >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-11636.748, 1299.299, -2459.923]} rotation={[-Math.PI / 2, 0, -2.182]}>
+            <mesh geometry={nodes.Lamp_2_Lamp_0.geometry} material={materials.Lamp} position={[-0.001, -0.001, 0]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-8615.109, 0, -6.94]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Rails_LED_0.geometry} material={materials.material}>
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+            <mesh geometry={nodes.Rails_Rails_0.geometry} material={materials.Rails} position={[0, 84.253, 0]}>
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <group position={[-7724.496, 824.751, -2537.892]} rotation={[-Math.PI / 2, 0, 0]}>
+            <mesh geometry={nodes.Table_Wood_0.geometry} material={materials.Wood} position={[0, 0, 0]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          </group>
+          <mesh geometry={nodes.Convector_Metal_0.geometry} material={materials.Metal} position={[-8515.11, -2.47, 0]} rotation={[-Math.PI / 2, 0, 0]}  >
+         <meshStandardMaterial
+           {...fabricTextureProps}
+           color={cushionColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.Door_Black_Plastic_0.geometry} material={materials.Black_Plastic} position={[-8365.099, 0, 2025.008]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.Floor_Inside__0.geometry} material={materials.Closet_LED_01__0} position={[-8515.11, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.Floor_Outside_Outside_0.geometry} material={materials.Outside} position={[-8515.11, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.Lamp_1_Lamp_0.geometry} material={materials.Lamp} position={[-11380.862, 1299.299, -2460.535]} rotation={[-Math.PI / 2, 0, 0]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.Nightstand_Black_Plastic_0.geometry} material={materials.Black_Plastic} position={[-11543.674, 555.099, -2732.154]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.Office_Chair_Office_Chair_0.geometry} material={materials.Office_Chair} position={[-7813.599, 360.412, -1658.14]} rotation={[-Math.PI / 2, 0, 2.955]} scale={0.163} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.Picture_Picture_0.geometry} material={materials.Picture} position={[-7869.285, 2125.141, -2750.049]} scale={[0.806, 0.806, 1]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.TV_TV_0.geometry} material={materials.material_10} position={[-9947.258, 1563.263, 2717.162]} rotation={[-Math.PI, 0, -Math.PI]} scale={[0.835, 0.835, 1]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.TV_Stand_Wood_0.geometry} material={materials.Wood} position={[-10194.86, 577.878, 2542.106]} rotation={[-Math.PI / 2, 0, Math.PI]} />
+          <mesh geometry={nodes.Wall_Panel_Black_Plastic_0.geometry} material={materials.Black_Plastic} position={[-8615.109, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes['Wall_Panel-LED_LED_0'].geometry} material={materials.material} position={[-8615.109, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+          <mesh geometry={nodes.Wall_Panel_2_Black_Plastic_0.geometry} material={materials.Black_Plastic} position={[-8365.099, 0, 2025.008]} rotation={[-Math.PI / 2, 0, Math.PI / 2]} >
+         <meshStandardMaterial
+           {...(material === "leather"
+             ? leatherTextureProps
+             : fabricTextureProps)}
+           color={chairColor.color}
+         />
+       </mesh>
+        </group>
+      </group>
     </group>
   );
 }
 
 export default Chair;
 
-useGLTF.preload("./models/chair.gltf");
+useGLTF.preload("./models/scene.gltf");
